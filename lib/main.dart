@@ -6,7 +6,7 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context){
-    final wordPair = WordPair.random();
+    // final wordPair = WordPair.random();
     return MaterialApp(
       title: 'welcome to fluuter',
       home: Scaffold(  //provides default appbar
@@ -15,10 +15,24 @@ class MyApp extends StatelessWidget{
         ),
         body: Center(
           // child: const Text('hello there'),
-          child: Text(wordPair.asPascalCase), //generates random words from english_words library
+          // child: Text(wordPair.asPascalCase), //generates random words from english_words library
+          child: RandomWords(),
         ),
       ),
     );
   }
 
+}
+
+class RandomWordsState extends State<RandomWords>{
+  @override
+  Widget build(BuildContext context){
+    final WordPair wordPair = WordPair.random();
+    return Text(wordPair.asPascalCase);
+  }
+}
+
+class RandomWords extends StatefulWidget {
+  @override
+  RandomWordsState createState() => RandomWordsState();
 }
